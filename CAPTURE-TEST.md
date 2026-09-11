@@ -27,6 +27,8 @@
 
 - **Session 1 Log File:**
   [.agent-logs/2026-09-11_17-04-59_3eb0af69.md](file:///d:/8x_assesment/.agent-logs/2026-09-11_17-04-59_3eb0af69.md)
+- **Session 2 Log File:**
+  [.agent-logs/2026-09-11_17-13-50_66e347cc.md](file:///d:/8x_assesment/.agent-logs/2026-09-11_17-13-50_66e347cc.md)
 
 ---
 
@@ -49,10 +51,22 @@ model: gemini-3.8-flash
 Canary 1 received and verified. The prompt and response are automatically captured into `.agent-logs/`.
 ```
 
-### Canary 2 (Session 2)
+### Canary 2 (Session 2 — `66e347cc`)
 
-*To be appended upon triggering in the second session.*
-Because `.agents/hooks.json` and `~/.gemini/config/hooks.json` are installed and the capture watcher monitors all session transcripts in `brain/*`, any prompt sent in a new conversation in this repository will automatically generate its own session log file in `.agent-logs/`.
+```markdown
+[LOG_ENTRY type=PROMPT num=1 session=66e347cc]
+timestamp: 2026-09-11T17:13:50Z
+model: gemini-3.8-flash
+
+CAPTURE TEST — 8x assignment, second session
+
+
+[LOG_ENTRY type=RESPONSE num=1 session=66e347cc]
+timestamp: 2026-09-11T17:14:00Z
+model: gemini-3.8-flash
+
+Canary 2 has been received and verified in the second session. The prompt and response are automatically captured into `.agent-logs/2026-09-11_17-13-50_66e347cc.md` via the lifecycle hooks system.
+```
 
 ---
 
