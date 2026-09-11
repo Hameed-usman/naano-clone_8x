@@ -1,0 +1,18 @@
+{
+  "agent-capture": {
+    "Stop": [
+      {
+        "type": "command",
+        "command": "python d:\\8x_assesment\\.agents\\capture.py --hook",
+        "timeout": 30
+      }
+    ],
+    "PostInvocation": [
+      {
+        "type": "command",
+        "command": "python d:\\8x_assesment\\.agents\\capture.py --hook",
+        "timeout": 30
+      }
+    ]
+  }
+}
