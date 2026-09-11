@@ -22,6 +22,56 @@ export interface Creator {
   linkedinUrl?: string;
 }
 
+export interface CampaignBrief {
+  id: string;
+  productName: string;
+  websiteUrl: string;
+  objective: "Demo Signups" | "Brand Awareness" | "Free Trial Starts";
+  targetIcp: string;
+  keyMessaging: string;
+  guidelinesDos: string;
+  guidelinesDonts: string;
+  targetLink: string;
+  utmLink: string;
+  selectedCreators: Creator[];
+  totalBudget: number;
+  estimatedReach: number;
+  estimatedLeads: number;
+  createdAt: string;
+  status: "Active" | "In Review" | "Completed";
+}
+
+export interface CreatorPerformanceRecord {
+  creatorId: string;
+  creatorName: string;
+  creatorRole: string;
+  creatorAvatar: string;
+  creatorNiche: string;
+  angle: string;
+  status: "Active" | "Scheduled" | "Delivered";
+  impressions: number;
+  clicks: number;
+  leads: number;
+  cpl: number;
+  spend: number;
+  previewSnippet: string;
+}
+
+export interface AnalyticsCampaign {
+  id: string;
+  title: string;
+  productName: string;
+  objective: string;
+  status: "Active" | "Delivered" | "Scheduled";
+  startDate: string;
+  totalSpend: number;
+  attributedClicks: number;
+  leadsGenerated: number;
+  blendedCac: number;
+  pipelineValue: number;
+  creators: CreatorPerformanceRecord[];
+}
+
 export interface Campaign {
   id: string;
   title: string;
@@ -333,4 +383,112 @@ export const TRUST_LOGOS = [
   { name: "OutboundEngine", label: "OUTBOUND.IO" },
   { name: "SaaSscale", label: "SAASCALE" },
   { name: "RevScale", label: "REVSCALE" },
+];
+
+export const DEFAULT_ANALYTICS_CAMPAIGNS: AnalyticsCampaign[] = [
+  {
+    id: "campaign-q3-ai-pipeline",
+    title: "Q3 AI Workflow Launch",
+    productName: "OutboundEngine AI",
+    objective: "Free Trial Starts",
+    status: "Active",
+    startDate: "September 2026",
+    totalSpend: 1850,
+    attributedClicks: 762,
+    leadsGenerated: 148,
+    blendedCac: 12.5,
+    pipelineValue: 59200,
+    creators: [
+      {
+        creatorId: "thomas-higadere",
+        creatorName: "Thomas Higadère",
+        creatorRole: "Creator",
+        creatorAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+        creatorNiche: "B2B & AI",
+        angle: "How AI changed prospecting for wealth managers",
+        status: "Active",
+        impressions: 42800,
+        clicks: 312,
+        leads: 48,
+        cpl: 13.54,
+        spend: 650,
+        previewSnippet: "How AI changed our prospecting workflow for wealth managers. The exact prompt stack and routing logic that booked 18 enterprise demos in 7 days:",
+      },
+      {
+        creatorId: "robin-tempe",
+        creatorName: "Robin Tempe",
+        creatorRole: "Creator",
+        creatorAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+        creatorNiche: "Sales & AI",
+        angle: "Zero cold calls: Automated outbound teardown",
+        status: "Delivered",
+        impressions: 18500,
+        clicks: 190,
+        leads: 42,
+        cpl: 9.52,
+        spend: 400,
+        previewSnippet: "I run my entire prospecting workflow through an AI. Here's the transparent 4-step framework we used to hit 50 qualified trials with zero cold calls:",
+      },
+      {
+        creatorId: "eric-djavid",
+        creatorName: "Eric Djavid",
+        creatorRole: "Sales Leader",
+        creatorAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+        creatorNiche: "B2B",
+        angle: "Why 80% of SDR leads are disqualified immediately",
+        status: "Active",
+        impressions: 31000,
+        clicks: 260,
+        leads: 58,
+        cpl: 13.79,
+        spend: 800,
+        previewSnippet: "Most sales teams spend 80% of their time on the wrong leads. Here is the qualification matrix our enterprise teams use before setting up a single discovery call:",
+      },
+    ],
+  },
+  {
+    id: "campaign-blogseo-sprint",
+    title: "BlogSEO Growth Sprint",
+    productName: "BlogSEO AI",
+    objective: "Demo Signups",
+    status: "Delivered",
+    startDate: "August 2026",
+    totalSpend: 1350,
+    attributedClicks: 725,
+    leadsGenerated: 125,
+    blendedCac: 10.8,
+    pipelineValue: 47500,
+    creators: [
+      {
+        creatorId: "marina-panova",
+        creatorName: "Marina Panova",
+        creatorRole: "Content Creator",
+        creatorAvatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+        creatorNiche: "B2B",
+        angle: "30-Day LinkedIn Content System for tech founders",
+        status: "Delivered",
+        impressions: 100000,
+        clicks: 520,
+        leads: 85,
+        cpl: 8.82,
+        spend: 750,
+        previewSnippet: "How I build my 30-day LinkedIn content system: step-by-step swipe file for tech founders looking to convert readers into high-ticket pipeline.",
+      },
+      {
+        creatorId: "raphael-cohen",
+        creatorName: "Raphael Cohen",
+        creatorRole: "Founder & SaaS",
+        creatorAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80",
+        creatorNiche: "Founder & SaaS",
+        angle: "Organic B2B virality playbook to $1M ARR",
+        status: "Delivered",
+        impressions: 36000,
+        clicks: 205,
+        leads: 40,
+        cpl: 15.0,
+        spend: 600,
+        previewSnippet: "Zero to $1M ARR: The playbook we used for organic B2B virality without spending a dime on Google Adwords. Direct breakdown with conversion analytics.",
+      },
+    ],
+  },
 ];

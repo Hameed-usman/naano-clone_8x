@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useCampaign } from "@/context/CampaignContext";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import {
@@ -17,6 +19,7 @@ import {
 } from "lucide-react";
 
 export default function CampaignDrawer() {
+  const router = useRouter();
   const {
     selectedCreators,
     selectedCount,
@@ -105,13 +108,15 @@ export default function CampaignDrawer() {
                   <Trash2 className="w-4 h-4" />
                 </button>
 
-                <button
-                  onClick={handleLaunchBrief}
+                <Link
+                  href="/campaign/new"
+                  onClick={() => triggerConfetti()}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-bold text-xs sm:text-sm shadow-lg shadow-indigo-500/25 transition-all duration-150 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Request Campaign Brief</span>
-                </button>
+                  <span>Build Campaign Brief</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </div>

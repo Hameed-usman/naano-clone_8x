@@ -53,43 +53,44 @@ export default function Navbar() {
 
           {/* Desktop Nav Links */}
           <nav className="hidden md:flex items-center gap-8">
-            <a
-              href="#creators"
+            <Link
+              href="/#creators"
               className="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-150"
             >
               Marketplace
-            </a>
-            <a
-              href="#how-it-works"
+            </Link>
+            <Link
+              href="/#how-it-works"
               className="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-150"
             >
               How It Works
-            </a>
-            <a
-              href="#case-studies"
+            </Link>
+            <Link
+              href="/#case-studies"
               className="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-150"
             >
               Case Studies
-            </a>
-            <a
-              href="#pricing"
+            </Link>
+            <Link
+              href="/#pricing"
               className="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-150"
             >
               Pricing
-            </a>
-            <a
-              href="#analytics"
-              className="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-150"
+            </Link>
+            <Link
+              href="/analytics"
+              className="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-150 flex items-center gap-1.5"
             >
-              Analytics
-            </a>
+              <span>Analytics</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            </Link>
           </nav>
 
           {/* Action CTA */}
           <div className="hidden md:flex items-center gap-4">
             {isHydrated && selectedCount > 0 ? (
-              <a
-                href="#campaign-brief"
+              <Link
+                href="/campaign/new"
                 onClick={handleLaunchClick}
                 className="relative inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-indigo-500 to-indigo-600 text-white hover:from-indigo-600 hover:to-indigo-700 shadow-md shadow-indigo-500/25 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
               >
@@ -101,15 +102,15 @@ export default function Navbar() {
                 <span className="text-xs text-indigo-200 border-l border-indigo-400/40 pl-2">
                   {formatCurrency(totalBudget)}
                 </span>
-              </a>
+              </Link>
             ) : (
-              <a
-                href="#creators"
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700/80 transition-all duration-200 hover:border-slate-600"
+              <Link
+                href="/campaign/new"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-600/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
               >
-                <span>Explore Creators</span>
+                <span>Launch Campaign</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             )}
           </div>
 
@@ -134,43 +135,50 @@ export default function Navbar() {
       {/* Mobile dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#0c1220] border-b border-slate-800 px-4 pt-3 pb-5 space-y-3">
-          <a
-            href="#creators"
+          <Link
+            href="/#creators"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-base font-medium text-slate-300 hover:text-white py-1"
           >
             Marketplace
-          </a>
-          <a
-            href="#how-it-works"
+          </Link>
+          <Link
+            href="/#how-it-works"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-base font-medium text-slate-300 hover:text-white py-1"
           >
             How It Works
-          </a>
-          <a
-            href="#case-studies"
+          </Link>
+          <Link
+            href="/#case-studies"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-base font-medium text-slate-300 hover:text-white py-1"
           >
             Case Studies
-          </a>
-          <a
-            href="#pricing"
+          </Link>
+          <Link
+            href="/#pricing"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-base font-medium text-slate-300 hover:text-white py-1"
           >
             Pricing
-          </a>
+          </Link>
+          <Link
+            href="/analytics"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-base font-medium text-slate-300 hover:text-white py-1"
+          >
+            Analytics
+          </Link>
           <div className="pt-2">
-            <a
-              href="#creators"
+            <Link
+              href="/campaign/new"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-lg bg-indigo-600 text-white hover:bg-indigo-700"
             >
-              <span>Explore Creators</span>
+              <span>Launch Campaign</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </div>
       )}
